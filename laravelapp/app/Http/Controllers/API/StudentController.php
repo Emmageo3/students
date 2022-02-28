@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 
 class StudentController extends Controller
 {
+    //recuperer les données de la base de données
     public function index()
     {
         $students = Student::all();
@@ -18,6 +19,7 @@ class StudentController extends Controller
         ]);
     }
 
+    //stocker les données en base de données
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(),[
@@ -51,6 +53,7 @@ class StudentController extends Controller
 
     }
 
+    //modification des données
     public function edit($id)
     {
         $student = Student::find($id);
@@ -71,6 +74,7 @@ class StudentController extends Controller
 
     }
 
+    //mise a jour des données dans la base de données
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(),[
@@ -114,6 +118,7 @@ class StudentController extends Controller
         }
     }
 
+    //supression des données
     public function destroy($id)
     {
         $student = Student::find($id);
